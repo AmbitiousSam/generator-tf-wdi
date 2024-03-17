@@ -1,8 +1,6 @@
 {
-  "cloudProvider": "aws",
-  "awsAccountId": "123456789123",
-  "awsRegion": "ap-south-1",
-  "projectId": "test-aws-with-domain",
+  "cloudProvider": "minikube",
+  "projectId": "test-minikube-with-domain",
   "projectName": "test",
   "orchestration": "kubernetes",
   "clusterName": "test",
@@ -12,7 +10,9 @@
   "enableECK": "false",
   "k8sWebUI": "true",
   "generateInfra": "true",
-  "domain": "example.com",
   "harbor": "true",
+  "harborDomain": "https://core.harbor.domain",
+  "auth": "false",
+  "dockerRepositoryName": "harbor",
   "appFolders": ["clinet", "backend"]
 }

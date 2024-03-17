@@ -3,3 +3,8 @@ variable "docker_repository_name" {
   type        = string
   default     = "<%- dockerRepositoryName %>"
 }
+variable "harbor_url" {
+  type = string
+  description = "Harbor Url"
+  default = "<%- harborDomain -%>"
+}

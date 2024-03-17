@@ -45,6 +45,15 @@ const fileListEcrBuildAndPush = [
   "ecr-build&publish/README.md"
 ];
 
+const fileListHarbor = [
+  "harbor/resources/values.yml",
+  "harbor/main.tf",
+  "harbor/provider.tf",
+  "harbor/create-project.tf",
+  "harbor/variables.tf",
+  "harbor/harbor-cert-setup.sh"
+];
+
 const fileListIstio = [
   "istio/istio.tf",
   "istio/provider.tf",
@@ -130,6 +139,7 @@ module.exports = {
   fileListAcr,
   fileListAcrBuildAndPush,
   fileListAzure,
+  fileListHarbor,
   fileListIstio,
   fileListNamespace,
   fileListECR,

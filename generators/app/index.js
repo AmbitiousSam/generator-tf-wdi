@@ -19,7 +19,8 @@ const {
   fileListEcrBuildAndPush,
   fileListIstioMonitoring,
   fileListIstioMonitoringResources,
-  fileListK8sWebUI
+  fileListK8sWebUI,
+  fileListHarbor
 } = require("./assets/filesList");
 
 module.exports = class extends Generator {
@@ -85,6 +86,12 @@ module.exports = class extends Generator {
         case "minikube":
           this.log("minikube Generator");
           this._fileHelper(fileListMinikube, options, copyOpts);
+          if (options.harbor === "true") {
+            options.dockerRepositoryName = "core.harbor.domain";
+            this._fileHelper(fileListHarbor, options, copyOpts);
+            this._fileHelper(fileListDockerBuildAndPush, options, copyOpts);
+          }
+
           this._fileHelper(fileListDockerBuildAndPush, options, copyOpts);
           break;
         default:
