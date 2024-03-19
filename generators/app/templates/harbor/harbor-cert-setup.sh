@@ -8,7 +8,7 @@ do_minikube() {
     INGRESS_NAME=$CERT_INGRESS
   fi
 
-  kubectl get secrets $INGRESS_NAME-ingress -o jsonpath="{.data['ca\.crt']}" | base64 -d >harbor-ca.crt
+  kubectl get secrets -n harbor $INGRESS_NAME-ingress -o jsonpath="{.data['ca\.crt']}" | base64 -d >harbor-ca.crt
   scp -o IdentitiesOnly=yes -i $(minikube ssh-key) harbor-ca.crt docker@$(minikube ip):./harbor-ca.crt
 
   minikube ssh -- sudo mkdir -p /etc/docker/certs.d/core.harbor.domain
@@ -23,7 +23,7 @@ do_local() {
     INGRESS_NAME=$CERT_INGRESS
   fi
 
-  kubectl get secrets $INGRESS_NAME-ingress -o jsonpath="{.data['ca\.crt']}" | base64 -d >harbor-ca.crt
+  kubectl get secrets -n harbor $INGRESS_NAME-ingress -o jsonpath="{.data['ca\.crt']}" | base64 -d >harbor-ca.crt
   echo "The following commands will require you to enter your sudo password to copy the harbor certificate file to docker daemon"
 
   sudo mkdir -p /etc/docker/certs.d/core.harbor.domain

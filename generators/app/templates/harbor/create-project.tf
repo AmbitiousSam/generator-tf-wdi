@@ -5,5 +5,6 @@ resource "harbor_project" "harbor_project_<%- appFolder.toLowerCase() %>" {
     vulnerability_scanning      = true                
     enable_content_trust        = true               
     enable_content_trust_cosign = false
+    depends_on = [ null_resource.harbor_ca_cert_minikube_setup ]
 }
 <%_ }) _%>

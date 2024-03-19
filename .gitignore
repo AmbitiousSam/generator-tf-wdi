@@ -137,3 +137,4 @@ test-minikube-with-domain/terraform/istio-monitoring/variables.tf
 test-minikube-with-domain/terraform/k8s-web-ui/main.tf
 test-minikube-with-domain/terraform/k8s-web-ui/provider.tf
 test-minikube-with-domain/terraform/k8s-web-ui/README.md
+test-minikube.zip

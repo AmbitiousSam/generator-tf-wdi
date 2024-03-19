@@ -71,6 +71,9 @@ function minikube {
                         echo " 1. If any client application [react, angular], update the '.env.production'."
                         echo " 2. Obtain Minikube Ip address."
                         echo " 3. Replace all the occurrences of localhost with minikube ip address in the '.env.production' for clinet application."
+                        <%_ if (harbor == "true") { _%>
+                        echo " 4. Run the 'harbor-cert-setup.sh --local' command to make sure docker is able to push images to harbor"
+                        <%_ } _%>
                         echo ""
                         echo -n "Confirm if you meet all the above requirements (yes/no):"
                         read user_continue_action_for_building_image
